@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Avatar from '../Avatar/Avatar';
 import Auxillary from '../hoc/Auxillary';
 import classes from './Play.css';
+import ReactDOM from 'react-dom';
 
 class Play extends Component{
 
@@ -11,7 +12,15 @@ class Play extends Component{
         rightHand1:"",
         avatar2:"",
         leftHand2:"",
-        rightHand2:""
+        rightHand2:"",
+        player1:"react",
+        player2:"angular",
+        int1:"",
+        int2:"",
+        int3:"",
+        int4:"",
+        int5:"",
+        int6:"",
     }
 
     moveAvatar = (avatar,whichPlayer) =>{
@@ -67,30 +76,161 @@ class Play extends Component{
         var leftHand2 = this.state.leftHand2;
         var rightHand2 = this.state.rightHand2;
 
-        setInterval(this.moveAvatar,500,avatar1,"player1");
-        setInterval(this.moveHands, 500,leftHand1);
-        setInterval(this.moveHands, 500,rightHand1);
-        setInterval(this.moveAvatar,500,avatar2,"player2");
-        setInterval(this.moveHands,500,leftHand2);
-        setInterval(this.moveHands,500,rightHand2);
+        var int1 = setInterval(this.moveAvatar,500,avatar1,"player1");
+        var int2 = setInterval(this.moveHands, 500,leftHand1);
+        var int3 = setInterval(this.moveHands, 500,rightHand1);
+        var int4 = setInterval(this.moveAvatar,500,avatar2,"player2");
+        var int5 = setInterval(this.moveHands,500,leftHand2);
+        var int6 = setInterval(this.moveHands,500,rightHand2);
+
+        this.setState({
+            int1:int1,
+            int2:int2,
+            int3:int3,
+            int4:int4,
+            int5:int5,
+            int6:int6,
+        })
+    }
+
+    stop = () =>{
+        clearInterval(this.state.int1);
+        clearInterval(this.state.int2);
+        clearInterval(this.state.int3);
+        clearInterval(this.state.int4);
+        clearInterval(this.state.int5);
+        clearInterval(this.state.int6);
+    }
+
+    matchesHandler = () =>{
+        var matchesFilter = document.getElementById("matchesDD");
+        var match = matchesFilter.value;
+        var player1;
+        var player2;
+        if(match=="fe"){
+            player1="react";
+            player2="angular";
+        }
+        else if(match=="db"){
+            player1="sql";
+            player2="nosql";
+        }
+        else{
+            player1="express";
+            player2="django";
+        }
+
+        this.setState({
+            player1:player1,
+            player2:player2
+        })
     }
 
     render(){
-        console.log(this.state);
-        return(
-            <Auxillary>
-                <div className={classes.players}>
+        var matchCode;
+        var differencesCode;
+        if(this.state.player1=="react"){
+            matchCode=(
+                <Auxillary>
                     <div className={classes.player1}>
                         <Avatar company={"react"} callBack = {this.storePlayerData}/>
                     </div>
                     <div className={classes.player2}>
                         <Avatar company={"angular"} callBack = {this.storePlayerData}/>
                     </div>
+                </Auxillary>);
+            differencesCode=(
+                <Auxillary>
+                    <div className={classes.differencesTable}>
+                        <div className={classes.points}>
+                            <h1 className={classes.slides}>I am best at front end design</h1>
+                            <h1 className={classes.slides}>I am easy to start with</h1>
+                            <h1 className={classes.slides}>I have a virtual DOM and it is best</h1>
+                        </div>
+                        <div className={classes.points}>
+                            <h1 className={classes.slides}>No. You are not</h1>
+                            <h1 className={classes.slides}>I am easy to end with</h1>
+                            <h1 className={classes.slides}>I have a real DOM</h1>
+                        </div>
+                    </div>
+                </Auxillary>
+            );
+        }
+        else if(this.state.player1=="sql"){
+            matchCode=(
+                <Auxillary>
+                    <div className={classes.player1}>
+                        <Avatar company={"sql"} callBack = {this.storePlayerData}/>
+                    </div>
+                    <div className={classes.player2}>
+                        <Avatar company={"nosql"} callBack = {this.storePlayerData}/>
+                    </div>
+                </Auxillary>);
+
+            differencesCode=(
+                <Auxillary>
+                    <div className={classes.differencesTable}>
+                        <div className={classes.points}>
+                            <h1 className={classes.slides}>I am elder than you. Respect me</h1>
+                            <h1 className={classes.slides}>I am easy to start with</h1>
+                            <h1 className={classes.slides}>I have tables</h1>
+                            <h1 className={classes.slides}>Dont worry. You dont need them</h1>
+                        </div>
+                        <div className={classes.points}>
+                            <h1 className={classes.slides}>Hi GrandPa</h1>
+                            <h1 className={classes.slides}>People are using me now</h1>
+                            <h1 className={classes.slides}>I dont have tables</h1>
+                            <h1 className={classes.slides}>Cool! Grandpa!</h1>
+                        </div>
+                    </div>
+                </Auxillary>
+            );
+        }
+        else{
+            matchCode=(
+                <Auxillary>
+                    <div className={classes.player1}>
+                        <Avatar company={"express"} callBack = {this.storePlayerData}/>
+                    </div>
+                    <div className={classes.player2}>
+                        <Avatar company={"django"} callBack = {this.storePlayerData}/>
+                    </div>
+                </Auxillary>);
+            
+            differencesCode=(
+                <Auxillary>
+                    <div className={classes.differencesTable}>
+                        <div className={classes.points}>
+                            <h1 className={classes.slides}>I am elder than you. Respect me</h1>
+                            <h1 className={classes.slides}>I am easy to start with</h1>
+                            <h1 className={classes.slides}>I have tables</h1>
+                            <h1 className={classes.slides}>Dont worry. You dont need them</h1>
+                        </div>
+                        <div className={classes.points}>
+                            <h1 className={classes.slides}>Hi GrandPa</h1>
+                            <h1 className={classes.slides}>People are using me in recent times</h1>
+                            <h1 className={classes.slides}>I dont have tables</h1>
+                            <h1 className={classes.slides}>Cool! Grandpa!</h1>
+                        </div>
+                    </div>
+                </Auxillary>
+            );
+        }
+        return(
+            <Auxillary>
+                <div className={classes.players}>
+                    {matchCode}
                 </div>
                 <div className={classes.stage}>
-                    <h1 className={classes.matchTitle}>React vs Angular</h1>
+                    <select id="matchesDD" className={classes.dropdown} onChange={this.matchesHandler}>
+                        <option value="fe">React vs Angular</option>
+                        <option value="db">SQL vs NoSQL</option>
+                        <option value="be">Express vs Django</option>
+                    </select>
                 </div>
-                <button onClick={this.play}>Play</button>
+                <button onClick={this.play} className={classes.playBtn}>Play</button>
+                <button onClick={this.stop} className={classes.stopBtn}>Stop</button>
+                {differencesCode}
             </Auxillary>
         );
     }

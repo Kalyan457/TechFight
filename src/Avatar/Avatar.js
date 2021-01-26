@@ -48,10 +48,28 @@ class Avatar extends Component{
     }
 
     render(){
-        console.log(this.props.company);
+        var avatarBody;
+        if(this.props.company=="react"){
+            avatarBody = (<div className={classes.bodyReact}></div>);
+        }
+        else if(this.props.company=="angular"){
+            avatarBody = (<div className={classes.bodyAngular}></div>);
+        }
+        else if(this.props.company=="sql"){
+            avatarBody = (<div className={classes.bodySQL}></div>);
+        }
+        else if(this.props.company=="nosql"){
+            avatarBody = (<div className={classes.bodyNOSQL}></div>);
+        }
+        else if(this.props.company=="express"){
+            avatarBody = (<div className={classes.bodyExpress}></div>);
+        }
+        else if(this.props.company=="django"){
+            avatarBody = (<div className={classes.bodyDjango}></div>);
+        }
         return(
             <Auxillary>
-                <div className={this.props.company=="react" ? classes.player1 : classes.player2} id={this.props.company=="react" ? "avatarDiv1" : "avatarDiv2"}>
+                <div className={this.props.company=="react" || this.props.company=="sql" || this.props.company=="express" ? classes.player1 : classes.player2} id={this.props.company=="react" || this.props.company=="sql" || this.props.company=="express" ? "avatarDiv1" : "avatarDiv2"}>
                     <div className={classes.face}>
                         <div className={classes.leftEye}></div>
                         <div className={classes.rightEye}></div>
@@ -60,10 +78,10 @@ class Avatar extends Component{
                         <div className={classes.mouth}><hr></hr></div>
                     </div>
                     <div className={classes.neck}></div>
-                    <div className={this.props.company=="react" ? classes.bodyReact : classes.bodyAngular}></div>
+                    {avatarBody}
                     <div className={classes.hands}>
-                        <div className={classes.leftHand} id={this.props.company=="react" ? "leftHand1" : "leftHand2"}></div>
-                        <div className={classes.rightHand} id={this.props.company=="react" ? "rightHand1" : "rightHand2"}></div>
+                        <div className={classes.leftHand} id={this.props.company=="react" || this.props.company=="sql" || this.props.company=="express" ? "leftHand1" : "leftHand2"}></div>
+                        <div className={classes.rightHand} id={this.props.company=="react" || this.props.company=="sql" || this.props.company=="express"? "rightHand1" : "rightHand2"}></div>
                     </div>
                     <div className={classes.legs}>
                         <div className={classes.leftLeg}></div>
