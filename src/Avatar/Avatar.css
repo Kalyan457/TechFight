@@ -1,0 +1,166 @@
+.player1{
+    float: left;
+    margin-left: 5%;
+}
+.player2{
+    float: right;
+    margin-right: 20%;
+}
+
+.face{
+    border-radius: 50%;
+    background-color: salmon;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    margin-left: 100px;
+}
+
+.leftEye{
+    border-radius: 50%;
+    background-color: black;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 20%;
+    top: 20%;
+}
+
+.rightEye{
+    border-radius: 50%;
+    background-color: black;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left:60%;
+    top: 20%;
+}
+
+.mouth{
+    border-radius: 25%;
+    background-color: white;
+    width: 40px;
+    height: 15px;
+    position: absolute;
+    left: 30%;
+    top: 65%;
+}
+
+.noseLeft{
+    border-left: 1px solid black;
+    height: 15px;
+    position: absolute;
+    transform: rotateZ(25deg);
+    left: 48%;
+    top: 37%;
+}
+
+.noseRight{
+    border-left: 1px solid black;
+    height: 15px;
+    position: absolute;
+    transform: rotateZ(-25deg);
+    left: 53%;
+    top: 37%;
+}
+
+.neck{
+    background-color: salmon;
+    height: 20px;
+    width: 20px;
+    margin-left: 140px;
+    margin-top: -5px;
+}
+
+.bodyReact{
+    border-radius: 20px;
+    background-color: salmon;
+    width: 110px;
+    height: 120px;
+    margin-left: 95px;
+    background-image: url("../Assets/react.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bodyAngular{
+    border-radius: 20px;
+    background-color: salmon;
+    width: 110px;
+    height: 120px;
+    margin-left: 95px;
+    background-image: url("../Assets/angular.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.legs{
+    position: relative;
+}
+
+.leftLeg{
+    background: linear-gradient(to top, salmon 0%, salmon 50%, rgb(35,35,35) 0%, rgb(35,35,35) 100%);
+    height: 100px;
+    width: 15px;
+    margin-left: 120px;
+    margin-top: -5px;
+    position: absolute;
+}
+
+.rightLeg{
+    background: linear-gradient(to top, salmon 0%, salmon 55%, rgb(35,35,35) 0%, rgb(35,35,35) 100%);
+    height: 100px;
+    width: 15px;
+    margin-left: 160px;
+    margin-top: -5px;
+}
+
+.feet{
+    position: relative;
+}
+
+.leftFeet{
+    background-color: black;
+    height: 15px;
+    width: 30px;
+    margin-left: 120px;
+    margin-top: -5px;
+    position: absolute;
+}
+
+.rightFeet{
+    background-color: black;
+    height: 15px;
+    width: 30px;
+    margin-left: 160px;
+    margin-top: -5px;
+    position: absolute;
+}
+
+.hands{
+    position: relative;
+}
+
+.leftHand{
+    background: linear-gradient(to top, salmon 0%, salmon 65%, rgb(35,35,35) 0%, rgb(35,35,35) 100%);
+    height: 100px;
+    width: 15px;
+    transform: rotateZ(45deg);
+    position: absolute;
+    left: 98px;
+    top: -104px;
+    transform-origin: top right;
+}
+
+.rightHand{
+    background: linear-gradient(to top, salmon 0%, salmon 65%, rgb(35,35,35) 0%, rgb(35,35,35) 100%);
+    height: 100px;
+    width: 15px;
+    transform: rotateZ(-45deg);
+    position: absolute;
+    transform-origin: top left;
+    left: 187px;
+    top: -104px;
+}

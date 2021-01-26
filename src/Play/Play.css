@@ -1,0 +1,39 @@
+.stage{
+    background-color: black;
+    width: 80%;
+    height: 100px;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.matchTitle{
+    color: white;
+}
+
+.players{
+    display: flex;
+    flex-direction: row;
+    background-color: brown;
+    justify-content: space-between;
+}
+
+.player1{
+    width: 50%;
+    border: 1px solid blue;
+    float: left;
+}
+
+.player2{
+    width: 50%;
+    border: 1px solid blue;
+    float: right;
+}
+
+/* .players>div{
+    background-color: red;
+    width: 50%;
+    border: 1px solid blue;
+} */
