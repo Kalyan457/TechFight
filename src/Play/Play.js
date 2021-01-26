@@ -26,19 +26,31 @@ class Play extends Component{
     moveAvatar = (avatar,whichPlayer) =>{
         if(whichPlayer=="player1"){
             var curLeft = avatar.getBoundingClientRect().left;
-            var x = Math.floor((Math.random() * 100) + 1);
+            // var x = Math.floor((Math.random() * 100) + 1);
+            // var nextPos = curLeft+x;
+            // if(nextPos>600){
+            //     nextPos = 0;
+            // }
+            var windowWidth = window.screen.availWidth;
+            var x = Math.floor((Math.random() * windowWidth) + 1);
             var nextPos = curLeft+x;
-            if(nextPos>600){
+            if(nextPos>windowWidth/2){
                 nextPos = 0;
             }
             avatar.style.marginLeft = nextPos+ "px";
         }
         else{
             var curRight = avatar.getBoundingClientRect().right;
+            // var x = Math.floor((Math.random() * 100) + 1);
+            // var nextPos = curRight+x;
+            // if(nextPos<300){
+            //     nextPos = 500;
+            // }
+            var windowWidth = window.screen.availWidth;
             var x = Math.floor((Math.random() * 100) + 1);
             var nextPos = curRight+x;
-            if(nextPos<300){
-                nextPos = 500;
+            if(nextPos<windowWidth/2){
+                nextPos = 200;
             }
             avatar.style.marginRight = nextPos+ "px";
         }
@@ -76,12 +88,12 @@ class Play extends Component{
         var leftHand2 = this.state.leftHand2;
         var rightHand2 = this.state.rightHand2;
 
-        var int1 = setInterval(this.moveAvatar,500,avatar1,"player1");
-        var int2 = setInterval(this.moveHands, 500,leftHand1);
-        var int3 = setInterval(this.moveHands, 500,rightHand1);
-        var int4 = setInterval(this.moveAvatar,500,avatar2,"player2");
-        var int5 = setInterval(this.moveHands,500,leftHand2);
-        var int6 = setInterval(this.moveHands,500,rightHand2);
+        var int1 = setInterval(this.moveAvatar,1000,avatar1,"player1");
+        var int2 = setInterval(this.moveHands, 1000,leftHand1);
+        var int3 = setInterval(this.moveHands, 1000,rightHand1);
+        var int4 = setInterval(this.moveAvatar,1000,avatar2,"player2");
+        var int5 = setInterval(this.moveHands,1000,leftHand2);
+        var int6 = setInterval(this.moveHands,1000,rightHand2);
 
         this.setState({
             int1:int1,
@@ -143,14 +155,14 @@ class Play extends Component{
                 <Auxillary>
                     <div className={classes.differencesTable}>
                         <div className={classes.points}>
-                            <h1 className={classes.slides}>I am best at front end design</h1>
-                            <h1 className={classes.slides}>I am easy to start with</h1>
-                            <h1 className={classes.slides}>I have a virtual DOM and it is best</h1>
+                            <h2 className={classes.slides}>I am best at front end design</h2>
+                            <h2 className={classes.slides}>I am easy to start with</h2>
+                            <h2 className={classes.slides}>I have a virtual DOM and it is best</h2>
                         </div>
                         <div className={classes.points}>
-                            <h1 className={classes.slides}>No. You are not</h1>
-                            <h1 className={classes.slides}>I am easy to end with</h1>
-                            <h1 className={classes.slides}>I have a real DOM</h1>
+                            <h2 className={classes.slides}>No. You are not</h2>
+                            <h2 className={classes.slides}>I am easy to end with</h2>
+                            <h2 className={classes.slides}>I have a real DOM</h2>
                         </div>
                     </div>
                 </Auxillary>
@@ -171,16 +183,16 @@ class Play extends Component{
                 <Auxillary>
                     <div className={classes.differencesTable}>
                         <div className={classes.points}>
-                            <h1 className={classes.slides}>I am elder than you. Respect me</h1>
-                            <h1 className={classes.slides}>I am easy to start with</h1>
-                            <h1 className={classes.slides}>I have tables</h1>
-                            <h1 className={classes.slides}>Dont worry. You dont need them</h1>
+                            <h2 className={classes.slides}>I am elder than you. Respect me</h2>
+                            <h2 className={classes.slides}>I am easy to start with</h2>
+                            <h2 className={classes.slides}>I have tables</h2>
+                            <h2 className={classes.slides}>Dont worry. You dont need them</h2>
                         </div>
                         <div className={classes.points}>
-                            <h1 className={classes.slides}>Hi GrandPa</h1>
-                            <h1 className={classes.slides}>People are using me now</h1>
-                            <h1 className={classes.slides}>I dont have tables</h1>
-                            <h1 className={classes.slides}>Cool! Grandpa!</h1>
+                            <h2 className={classes.slides}>Hi GrandPa</h2>
+                            <h2 className={classes.slides}>People are using me now</h2>
+                            <h2 className={classes.slides}>I dont have tables</h2>
+                            <h2 className={classes.slides}>Cool! Grandpa!</h2>
                         </div>
                     </div>
                 </Auxillary>
@@ -201,16 +213,14 @@ class Play extends Component{
                 <Auxillary>
                     <div className={classes.differencesTable}>
                         <div className={classes.points}>
-                            <h1 className={classes.slides}>I am elder than you. Respect me</h1>
-                            <h1 className={classes.slides}>I am easy to start with</h1>
-                            <h1 className={classes.slides}>I have tables</h1>
-                            <h1 className={classes.slides}>Dont worry. You dont need them</h1>
+                            <h2 className={classes.slides}>I have freedom to choose</h2>
+                            <h2 className={classes.slides}>I am much scalable</h2>
+                            <h2 className={classes.slides}>I belong to family of JavaScript</h2>
                         </div>
                         <div className={classes.points}>
-                            <h1 className={classes.slides}>Hi GrandPa</h1>
-                            <h1 className={classes.slides}>People are using me in recent times</h1>
-                            <h1 className={classes.slides}>I dont have tables</h1>
-                            <h1 className={classes.slides}>Cool! Grandpa!</h1>
+                            <h2 className={classes.slides}>I have in-house templates</h2>
+                            <h2 className={classes.slides}>I am easy to start with</h2>
+                            <h2 className={classes.slides}>I belong to Python</h2>
                         </div>
                     </div>
                 </Auxillary>
@@ -227,9 +237,9 @@ class Play extends Component{
                         <option value="db">SQL vs NoSQL</option>
                         <option value="be">Express vs Django</option>
                     </select>
+                    <button onClick={this.play} className={classes.playBtn}>Play</button>
+                    <button onClick={this.stop} className={classes.stopBtn}>Stop</button>
                 </div>
-                <button onClick={this.play} className={classes.playBtn}>Play</button>
-                <button onClick={this.stop} className={classes.stopBtn}>Stop</button>
                 {differencesCode}
             </Auxillary>
         );
